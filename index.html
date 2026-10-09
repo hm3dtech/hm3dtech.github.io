@@ -5,150 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HM 3D Tech - Bio Link</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Hiệu ứng chữ 3D (Nếu bạn muốn dùng lại chữ, nếu không có thể xóa) */
+        .title-3d {
+            background: linear-gradient(to bottom, #44adff 0%, #0050ff 60%, #001080 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 1px 0 #002ba1, 0 2px 0 #002896, 0 3px 0 #00248a, 0 4px 0 #00217f, 0 5px 0 #001e74, 0 6px 0 #001b69, 0 8px 10px rgba(0, 0, 0, 0.4);
+        }
+    </style>
 </head>
-<body class="min-h-screen flex items-center justify-center font-sans relative bg-cover bg-center bg-no-repeat bg-fixed" 
+
+<!-- NỀN TRANG WEB: Load từ bg.png -->
+<body class="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed flex justify-center items-center font-sans" 
       style="background-image: url('bg.png');">
     
-    <!-- Lớp phủ màu đen mờ để chữ dễ đọc hơn -->
-    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm z-0"></div>
-
-    <!-- Container mô phỏng màn hình điện thoại -->
-    <div class="max-w-[400px] relative z-10 w-full px-5 py-10 mx-auto relative bg-white/50 backdrop-blur-sm sm:shadow-2xl sm:rounded-[40px] sm:border-[8px] sm:border-gray-100 overflow-hidden min-h-[850px] flex flex-col">
+    <!-- KHUNG CHỨA (Mô phỏng màn hình điện thoại) -->
+    <div class="w-full max-w-[420px] px-5 py-8 flex flex-col items-center relative z-10">
         
-        <!-- HEADER: Logo & Brand Name -->
-        <div class="text-center mb-8">
-            <!-- Thay src bằng đường dẫn logo HM 3D Tech của bạn -->
-            <img src="https://placehold.co/150x150/e2e8f0/1e3a8a?text=HM+3D" alt="HM 3D Tech Logo" 
-                 class="w-32 h-32 mx-auto object-contain drop-shadow-xl mb-4 rounded-3xl">
-            <h1 class="text-3xl font-black text-blue-800 tracking-wide">HM 3D Tech</h1>
-            <h1 class="text-3xl font-black text-blue-800 tracking-wide">i'm dog</h1>
-        </div>
+        <!-- LOGO (0.png) -->
+        <img src="0.png" alt="HM 3D Tech Logo" class="w-40 h-auto mb-4 drop-shadow-2xl">
 
-        <!-- BUTTONS LIST -->
-        <div class="space-y-4 flex-1">
+        <!-- CÁC NÚT BẤM (1.png -> 5.png) -->
+        <div class="w-full flex flex-col space-y-4 mb-8">
+            <!-- Shopee -->
+            <a href="LINK_SHOPEE_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+                <img src="1.png" alt="Shopee" class="w-full h-auto">
+            </a>
             
-            <!-- Nút 1: Shopee -->
-            <a href="#" class="group relative flex items-center justify-between p-2 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-red-600 shadow-[0_4px_15px_rgba(239,68,68,0.4)] hover:scale-105 transition-transform duration-300">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shrink-0 shadow-inner">
-                        <!-- Icon Shopee -->
-                        <svg class="w-7 h-7 text-orange-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 6h-2c0-2.8-2.2-5-5-5S7 3.2 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.7 0 3 1.3 3 3H9c0-1.7 1.3-3 3-3zm7 17H5V8h14v15zm-7-5c-2.8 0-5-2.2-5-5h2c0 1.7 1.3 3 3 3s3-1.3 3-3h2c0 2.8-2.2 5-5 5z"/></svg>
-                    </div>
-                    <div class="flex flex-col text-white">
-                        <span class="font-bold text-[15px] uppercase tracking-wide leading-tight text-white drop-shadow-md">Mua hàng trên Shopee</span>
-                        <span class="text-[13px] text-white/90 font-medium">Xem sản phẩm ngay</span>
-                    </div>
-                </div>
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 text-red-600 mr-1 shadow-md group-hover:translate-x-1 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                </div>
+            <!-- TikTok -->
+            <a href="LINK_TIKTOK_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+                <img src="2.png" alt="TikTok" class="w-full h-auto">
             </a>
-
-            <!-- Nút 2: TikTok -->
-            <a href="#" class="group relative flex items-center justify-between p-2 rounded-full bg-gradient-to-r from-cyan-400 via-black to-rose-500 shadow-[0_4px_15px_rgba(0,0,0,0.3)] hover:scale-105 transition-transform duration-300">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-black rounded-full flex items-center justify-center shrink-0 border-2 border-white/20">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
-                    </div>
-                    <div class="flex flex-col text-white">
-                        <span class="font-bold text-[15px] uppercase tracking-wide leading-tight drop-shadow-md">Follow TikTok</span>
-                        <span class="text-[13px] text-white/90 font-medium">@hm3dtech</span>
-                    </div>
-                </div>
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 text-black mr-1 shadow-md group-hover:translate-x-1 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                </div>
-            </a>
-
-            <!-- Nút 3: Facebook -->
-            <a href="#" class="group relative flex items-center justify-between p-2 rounded-full bg-gradient-to-r from-blue-400 via-blue-600 to-blue-700 shadow-[0_4px_15px_rgba(37,99,235,0.4)] hover:scale-105 transition-transform duration-300">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 flex items-center justify-center shrink-0 ml-1">
-                        <svg class="w-11 h-11 text-white drop-shadow-sm" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-                    </div>
-                    <div class="flex flex-col text-white -ml-1">
-                        <span class="font-bold text-[15px] uppercase tracking-wide leading-tight drop-shadow-md">Bắp Huy</span>
-                        <span class="text-[12px] text-white/90 font-medium">Theo dõi Facebook của HM 3D Tech</span>
-                    </div>
-                </div>
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 text-blue-600 mr-1 shadow-md group-hover:translate-x-1 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                </div>
-            </a>
-
-            <!-- Nút 4: Zalo -->
-            <a href="#" class="group relative flex items-center justify-between p-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_4px_15px_rgba(6,182,212,0.4)] hover:scale-105 transition-transform duration-300">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white text-blue-500 rounded-full flex items-center justify-center shrink-0 shadow-inner font-black text-sm">
-                        Zalo
-                    </div>
-                    <div class="flex flex-col text-white">
-                        <span class="font-bold text-[15px] uppercase tracking-wide leading-tight drop-shadow-md">Nhắn Zalo</span>
-                        <span class="text-[13px] text-white/90 font-medium">037 986 1910 - Tư vấn & đặt hàng</span>
-                    </div>
-                </div>
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 text-blue-500 mr-1 shadow-md group-hover:translate-x-1 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                </div>
-            </a>
-
-            <!-- Nút 5: Gọi điện -->
-            <a href="#" class="group relative flex items-center justify-between p-2 rounded-full bg-gradient-to-r from-emerald-400 to-green-600 shadow-[0_4px_15px_rgba(16,185,129,0.4)] hover:scale-105 transition-transform duration-300">
-                <div class="flex items-center gap-3">
-                    <div class="w-12 h-12 flex items-center justify-center shrink-0 ml-1 bg-green-500/20 rounded-full backdrop-blur-sm border border-white/30">
-                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-                    </div>
-                    <div class="flex flex-col text-white">
-                        <span class="font-bold text-[15px] uppercase tracking-wide leading-tight drop-shadow-md">Gọi đặt hàng</span>
-                        <span class="text-[13px] text-white/90 font-medium">037 986 1910</span>
-                    </div>
-                </div>
-                <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center shrink-0 text-green-600 mr-1 shadow-md group-hover:translate-x-1 transition-transform">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
-                </div>
-            </a>
-        </div>
-
-        <!-- FEATURES SECTION (4 Icons lưới) -->
-        <div class="grid grid-cols-4 mt-8 pt-4 pb-6">
-            <div class="flex flex-col items-center text-center px-1 border-r border-blue-200">
-                <div class="w-10 h-10 rounded-full border-2 border-blue-600 flex items-center justify-center mb-1 text-blue-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                </div>
-                <span class="text-[10px] font-bold text-blue-900 leading-tight">Thiết kế<br>theo yêu cầu</span>
-            </div>
             
-            <div class="flex flex-col items-center text-center px-1 border-r border-blue-200">
-                <div class="w-10 h-10 rounded-full border-2 border-blue-600 flex items-center justify-center mb-1 text-blue-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                </div>
-                <span class="text-[10px] font-bold text-blue-900 leading-tight">Đa dạng<br>sản phẩm</span>
-            </div>
-
-            <div class="flex flex-col items-center text-center px-1 border-r border-blue-200">
-                <div class="w-10 h-10 rounded-full border-2 border-blue-600 flex items-center justify-center mb-1 text-blue-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-                </div>
-                <span class="text-[10px] font-bold text-blue-900 leading-tight">Chất lượng<br>& tỉ mỉ</span>
-            </div>
-
-            <div class="flex flex-col items-center text-center px-1">
-                <div class="w-10 h-10 rounded-full border-2 border-blue-600 flex items-center justify-center mb-1 text-blue-600">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                </div>
-                <span class="text-[10px] font-bold text-blue-900 leading-tight">Giao hàng<br>toàn quốc</span>
-            </div>
+            <!-- Facebook -->
+            <a href="LINK_FACEBOOK_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+                <img src="3.png" alt="Facebook" class="w-full h-auto">
+            </a>
+            
+            <!-- Zalo -->
+            <a href="LINK_ZALO_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+                <img src="4.png" alt="Zalo" class="w-full h-auto">
+            </a>
+            
+            <!-- Gọi điện -->
+            <a href="tel:0379861910" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+                <img src="5.png" alt="Gọi đặt hàng" class="w-full h-auto">
+            </a>
         </div>
 
-        <!-- FOOTER: Chữ ký cảm ơn -->
-        <div class="text-center mt-2 relative">
-            <span class="text-3xl text-blue-700 tracking-wide" style="font-family: 'Dancing Script', cursive;">
-                ✨ Cảm ơn bạn đã ghé <br>
-                <span class="text-4xl font-black text-blue-800 drop-shadow-sm font-sans tracking-tight">HM 3D Tech</span> ❤️
-            </span>
+        <!-- 4 ICON TÍNH NĂNG (6.jpg) -->
+        <!-- Mẹo: Dùng mix-blend-multiply để khử phần nền trắng của ảnh JPG, giúp nó hòa trộn tuyệt đẹp vào nền xanh mây bg.png -->
+        <div class="w-full mb-6 pointer-events-none">
+            <img src="6.jpg" alt="Features" class="w-full h-auto mix-blend-multiply opacity-90">
         </div>
+
+        <!-- CHỮ KÝ CẢM ƠN (7.jpg) -->
+        <div class="w-full mt-4 pointer-events-none">
+            <img src="7.jpg" alt="Cảm ơn bạn đã ghé HM 3D Tech" class="w-[85%] h-auto mx-auto mix-blend-multiply">
+        </div>
+
     </div>
-
 </body>
 </html>
