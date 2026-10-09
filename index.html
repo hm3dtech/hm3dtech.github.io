@@ -7,10 +7,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gradient-to-b from-blue-50/50 via-white to-blue-50/30 min-h-screen flex items-center justify-center font-sans">
+<body class="min-h-screen flex items-center justify-center font-sans relative bg-cover bg-center bg-no-repeat bg-fixed" 
+      style="background-image: url('bg.png');">
+    
+    <!-- Lớp phủ màu đen mờ để chữ dễ đọc hơn -->
+    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm z-0"></div>
 
     <!-- Container mô phỏng màn hình điện thoại -->
-    <div class="max-w-[400px] w-full px-5 py-10 mx-auto relative bg-white/50 backdrop-blur-sm sm:shadow-2xl sm:rounded-[40px] sm:border-[8px] sm:border-gray-100 overflow-hidden min-h-[850px] flex flex-col">
+    <div class="max-w-[400px] relative z-10 w-full px-5 py-10 mx-auto relative bg-white/50 backdrop-blur-sm sm:shadow-2xl sm:rounded-[40px] sm:border-[8px] sm:border-gray-100 overflow-hidden min-h-[850px] flex flex-col">
         
         <!-- HEADER: Logo & Brand Name -->
         <div class="text-center mb-8">
