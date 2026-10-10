@@ -6,12 +6,54 @@
     <title>HM 3D Tech - Bio Link</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Hiệu ứng chữ 3D (Nếu bạn muốn dùng lại chữ, nếu không có thể xóa) */
+        /* Hiệu ứng chữ 3D */
         .title-3d {
             background: linear-gradient(to bottom, #44adff 0%, #0050ff 60%, #001080 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 1px 0 #002ba1, 0 2px 0 #002896, 0 3px 0 #00248a, 0 4px 0 #00217f, 0 5px 0 #001e74, 0 6px 0 #001b69, 0 8px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- CSS CUSTOM CHO HIỆU ỨNG HOVER ẢNH --- */
+        .btn-img-link {
+            /* Bo góc cho bóng shadow ôm sát hình viên thuốc của ảnh */
+            border-radius: 50px; 
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        /* Hiệu ứng nảy nhẹ khi đưa chuột vào */
+        .btn-img-link:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        /* Khi click nén lại */
+        .btn-img-link:active {
+            transform: scale(0.98);
+        }
+
+        /* Đổ bóng màu rực rỡ cho từng nền tảng */
+        .glow-shopee:hover { 
+            box-shadow: 0 10px 25px rgba(255, 69, 0, 0.65), 0 0 15px rgba(255, 140, 0, 0.4); 
+        }
+        .glow-tiktok:hover { 
+            box-shadow: 0 10px 25px rgba(255, 8, 68, 0.5), 0 0 15px rgba(0, 242, 254, 0.5); 
+        }
+        .glow-facebook:hover { 
+            box-shadow: 0 10px 25px rgba(0, 114, 255, 0.65), 0 0 15px rgba(0, 198, 255, 0.4); 
+        }
+        .glow-zalo:hover { 
+            box-shadow: 0 10px 25px rgba(79, 172, 254, 0.65), 0 0 15px rgba(0, 242, 254, 0.4); 
+        }
+        .glow-call:hover { 
+            box-shadow: 0 10px 25px rgba(17, 153, 142, 0.65), 0 0 15px rgba(56, 239, 125, 0.4); 
+        }
+
+        /* Đảm bảo ảnh bên trong ôm khít góc bo */
+        .btn-img-link img {
+            border-radius: 50px;
         }
     </style>
 </head>
@@ -21,48 +63,47 @@
       style="background-image: url('bg.png');">
     
     <!-- KHUNG CHỨA (Mô phỏng màn hình điện thoại) -->
-    <div class="w-full max-w-[420px] px-5 py-8 flex flex-col items-center relative z-10">
+    <div class="w-full max-w-[420px] p-4 flex flex-col items-center relative z-10">
         
         <!-- LOGO (0.png) -->
-        <img src="0.png" alt="HM 3D Tech Logo" class="w-40 h-auto mb-4 drop-shadow-2xl">
+        <img src="0.png" alt="HM 3D Tech Logo" style="width: 120px;" class="drop-shadow-2xl mb-2">
 
         <!-- CÁC NÚT BẤM (1.png -> 5.png) -->
-        <div class="w-full flex flex-col space-y-4 mb-8">
+        <div class="w-full flex flex-col">
             <!-- Shopee -->
-            <a href="LINK_SHOPEE_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+            <a target="_blank" href="https://shopee.vn/hm3dtech" class="btn-img-link glow-shopee">
                 <img src="1.png" alt="Shopee" class="w-full h-auto">
             </a>
             
             <!-- TikTok -->
-            <a href="LINK_TIKTOK_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+            <a target="_blank" href="https://www.tiktok.com/@hm3dtech" class="btn-img-link glow-tiktok">
                 <img src="2.png" alt="TikTok" class="w-full h-auto">
             </a>
             
             <!-- Facebook -->
-            <a href="LINK_FACEBOOK_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+            <a target="_blank" href="https://www.facebook.com/huybap97/" class="btn-img-link glow-facebook">
                 <img src="3.png" alt="Facebook" class="w-full h-auto">
             </a>
             
             <!-- Zalo -->
-            <a href="LINK_ZALO_CUA_BAN" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+            <a target="_blank" href="https://zalo.me/84379861910" class="btn-img-link glow-zalo">
                 <img src="4.png" alt="Zalo" class="w-full h-auto">
             </a>
             
             <!-- Gọi điện -->
-            <a href="tel:0379861910" class="w-full block hover:scale-105 active:scale-95 transition-transform duration-300">
+            <a href="tel:0379861910" class="btn-img-link glow-call">
                 <img src="5.png" alt="Gọi đặt hàng" class="w-full h-auto">
             </a>
         </div>
 
         <!-- 4 ICON TÍNH NĂNG (6.jpg) -->
-        <!-- Mẹo: Dùng mix-blend-multiply để khử phần nền trắng của ảnh JPG, giúp nó hòa trộn tuyệt đẹp vào nền xanh mây bg.png -->
-        <div class="w-full mb-6 pointer-events-none">
-            <img src="6.jpg" alt="Features" class="w-full h-auto mix-blend-multiply opacity-90">
+        <div class="w-full pointer-events-none mt-2">
+            <img src="6.png" alt="Features" class="w-full h-auto mix-blend-multiply opacity-90">
         </div>
 
         <!-- CHỮ KÝ CẢM ƠN (7.jpg) -->
-        <div class="w-full mt-4 pointer-events-none">
-            <img src="7.jpg" alt="Cảm ơn bạn đã ghé HM 3D Tech" class="w-[85%] h-auto mx-auto mix-blend-multiply">
+        <div class="w-full pointer-events-none mt-2">
+            <img src="7.png" alt="Cảm ơn bạn đã ghé HM 3D Tech" class="w-[85%] h-auto mx-auto mix-blend-multiply">
         </div>
 
     </div>
