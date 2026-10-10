@@ -32,28 +32,109 @@
             text-shadow: 0 1px 0 #002ba1, 0 2px 0 #002896, 0 3px 0 #00248a, 0 4px 0 #00217f, 0 5px 0 #001e74, 0 6px 0 #001b69, 0 8px 10px rgba(0, 0, 0, 0.4);
         }
 
-        /* --- CSS CHO HIỆU ỨNG HOVER ẢNH --- */
-        .btn-img-link {
-            border-radius: 50px; 
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
-            display: block;
-            width: 100%;
-        }
-        .btn-img-link:hover {
-            transform: translateY(-5px) scale(1.02);
-        }
-        .btn-img-link:active {
-            transform: scale(0.98);
-        }
+	/* --- PHẦN CSS HOVER ẢNH LINK --- */
 
-        /* Đổ bóng màu */
-        .glow-shopee:hover { box-shadow: 0 10px 25px rgba(255, 69, 0, 0.65), 0 0 15px rgba(255, 140, 0, 0.4); }
-        .glow-tiktok:hover { box-shadow: 0 10px 25px rgba(255, 8, 68, 0.5), 0 0 15px rgba(0, 242, 254, 0.5); }
-        .glow-facebook:hover { box-shadow: 0 10px 25px rgba(0, 114, 255, 0.65), 0 0 15px rgba(0, 198, 255, 0.4); }
-        .glow-zalo:hover { box-shadow: 0 10px 25px rgba(79, 172, 254, 0.65), 0 0 15px rgba(0, 242, 254, 0.4); }
-        .glow-call:hover { box-shadow: 0 10px 25px rgba(17, 153, 142, 0.65), 0 0 15px rgba(56, 239, 125, 0.4); }
+	/* Khung chứa ảnh link (Chuyển động mượt mà, định vị) */
+	.btn-img-link {
+		position: relative;
+		display: block;
+		width: 100%;
+		border-radius: 9999px; /* Bo tròn hoàn toàn theo hình viên thuốc của ảnh */
+		overflow: hidden; /* Giữ cho vệt sáng không bị tràn ra ngoài */
+		transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+		transform: translateZ(0); /* Tối ưu hóa render trên mobile */
+	}
 
+	/* Đảm bảo ảnh bên trong vừa khít và không bị vỡ góc */
+	.btn-img-link img {
+		border-radius: 9999px;
+		display: block;
+		width: 100%;
+		height: auto;
+		transition: transform 0.4s ease;
+	}
+
+	/* Tạo hiệu ứng vệt sáng lướt qua khi hover (Glossy Shimmer) */
+	.btn-img-link::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -150%;
+		width: 50%;
+		height: 100%;
+		background: linear-gradient(
+			to right,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0.3) 50%,
+			rgba(255, 255, 255, 0) 100%
+		);
+		transform: skewX(-25deg);
+		transition: none;
+		z-index: 2;
+		pointer-events: none;
+	}
+
+	/* Kích hoạt vệt sáng khi hover */
+	.btn-img-link:hover::before {
+		left: 150%;
+		transition: all 0.75s ease-in-out;
+	}
+
+	/* Hiệu ứng phóng to nhẹ & nảy khi hover/active */
+	.btn-img-link:hover {
+		transform: translateY(-4px) scale(1.025);
+	}
+
+	.btn-img-link:active {
+		transform: translateY(-1px) scale(0.985);
+	}
+
+	/* Thêm hiệu ứng phóng nhẹ cho riêng ảnh bên trong để tạo chiều sâu */
+	.btn-img-link:hover img {
+		transform: scale(1.01);
+	}
+
+	/* --- HIỆU ỨNG ĐỔ BÓNG PHÁT SÁNG THEO MÀU (COLORED GLOW SHADOW) --- */
+
+	/* Shopee (Cam Đỏ rực rỡ) */
+	.glow-shopee:hover {
+		box-shadow: 
+			0 12px 24px rgba(234, 76, 30, 0.4), 
+			0 4px 12px rgba(234, 76, 30, 0.2), 
+			0 0 0 1px rgba(234, 76, 30, 0.1);
+	}
+
+	/* TikTok (Hồng Đỏ & Xanh biển Neon) */
+	.glow-tiktok:hover {
+		box-shadow: 
+			0 12px 24px rgba(254, 44, 85, 0.3), 
+			0 4px 12px rgba(37, 244, 238, 0.2), 
+			0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+
+	/* Facebook (Xanh Dương Đậm) */
+	.glow-facebook:hover {
+		box-shadow: 
+			0 12px 24px rgba(24, 119, 242, 0.4), 
+			0 4px 12px rgba(24, 119, 242, 0.2), 
+			0 0 0 1px rgba(24, 119, 242, 0.1);
+	}
+
+	/* Zalo (Xanh Dương Nhạt) */
+	.glow-zalo:hover {
+		box-shadow: 
+			0 12px 24px rgba(0, 104, 255, 0.35), 
+			0 4px 12px rgba(0, 104, 255, 0.15), 
+			0 0 0 1px rgba(0, 104, 255, 0.1);
+	}
+
+	/* Cuộc gọi (Xanh Lá) */
+	.glow-call:hover {
+		box-shadow: 
+			0 12px 24px rgba(52, 199, 89, 0.4), 
+			0 4px 12px rgba(52, 199, 89, 0.2), 
+			0 0 0 1px rgba(52, 199, 89, 0.15);
+	}
         .btn-img-link img { border-radius: 50px; }
 
         /* --- CSS CHO LOADING SCREEN --- */
@@ -82,7 +163,7 @@
         <!-- Spinner xoay -->
         <div class="spinner mb-4"></div>
         <!-- Logo nhấp nháy (tùy chọn) -->
-        <img src="0.png" alt="Loading Logo" class="w-24 animate-pulse">
+        <img src="00.png" alt="Loading Logo" class="w-24 animate-pulse">
         <p class="mt-2 text-[#0072ff] font-semibold text-sm">Chờ em xíu...</p>
     </div>
 
@@ -90,23 +171,23 @@
     <div class="w-full max-w-[420px] p-4 flex flex-col items-center relative z-10">
         
         <!-- LOGO (0.png) -->
-        <img src="0.png" alt="HM 3D Tech Logo" style="width: 120px;" class="drop-shadow-2xl mb-2">
+        <img src="00.png" alt="HM 3D Tech Logo" style="width: 120px;" class="drop-shadow-2xl mb-2">
 
         <!-- CÁC NÚT BẤM (1.png -> 5.png) -->
         <div class="w-full flex flex-col">
-            <a href="https://shopee.vn/hm3dtech" class="btn-img-link">
+            <a href="https://shopee.vn/hm3dtech" class="btn-img-link glow-shopee">
                 <img src="1.png" alt="Shopee" class="w-full h-auto">
             </a>
-            <a href="https://www.tiktok.com/@hm3dtech" class="btn-img-link">
+            <a href="https://www.tiktok.com/@hm3dtech" class="btn-img-link glow-tiktok">
                 <img src="2.png" alt="TikTok" class="w-full h-auto">
             </a>
-            <a href="https://www.facebook.com/huybap97/" class="btn-img-link">
+            <a href="https://www.facebook.com/huybap97/" class="btn-img-link glow-facebook">
                 <img src="3.png" alt="Facebook" class="w-full h-auto">
             </a>
-            <a href="https://zalo.me/84379861910" class="btn-img-link">
+            <a href="https://zalo.me/84379861910" class="btn-img-link glow-zalo">
                 <img src="4.png" alt="Zalo" class="w-full h-auto">
             </a>
-            <a href="tel:0379861910" class="btn-img-link">
+            <a href="tel:0379861910" class="btn-img-link glow-call">
                 <img src="5.png" alt="Gọi đặt hàng" class="w-full h-auto">
             </a>
         </div>
